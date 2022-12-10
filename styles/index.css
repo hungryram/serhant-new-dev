@@ -1,0 +1,131 @@
+/* purgecss start ignore */
+@tailwind base;
+@tailwind components;
+/* purgecss end ignore */
+@tailwind utilities;
+
+:root {
+    --heading-font-family: 'Lato', sans-serif;
+    --content-font-family: 'Roboto', sans-serif;
+}
+
+main * {
+  font-family: var(--content-font-family)
+}
+
+body {
+  background-color: var(--website-body-color);
+  color: var(--website-text-color);
+}
+
+.section {
+  @apply py-20
+}
+
+.container {
+  @apply px-4
+}
+
+.accent {
+  color: var(--primary-accent)
+}
+
+iframe {
+  max-width: 100%;
+}
+
+.bg-secondary {
+  background-color: var(--secondary-color);
+}
+
+/* PAGINATION */
+span.swiper-pagination-bullet {
+  opacity: .7;
+  width: 8px;
+  height: 8px;
+  margin: 0 4px!important;
+}
+
+/* OVERLAY */
+
+.featured-grid-overlay:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.25);
+    right: 0;
+    bottom: 0;
+}
+
+.hero-overlay:after {
+  background: rgba(0,0,0,.25);
+  bottom: 0;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+/* SOCIAL */
+
+ul.social-component li {
+  @apply inline-block mr-2 text-2xl;
+  color: var(--primary-accent)
+}
+
+/* HEADINGS */
+
+.h2 {
+    @apply md:text-3xl text-2xl;
+}
+
+.h3 {
+    @apply md:text-xl text-lg;
+}
+
+/* CONTENT */
+body .content h1, 
+body .content h2, 
+body .content h3, 
+body .content h4, 
+body .content h5,
+body .content h6 {
+    @apply mt-4 mb-6 leading-tight font-medium;
+    font-family: var(--heading-font-family);
+    color: inherit;
+  }
+  
+  .content h1 {
+    @apply md:text-5xl text-3xl;
+  }
+  
+  .content h2 {
+    @apply md:text-4xl text-3xl;
+  }
+  
+  .content h3 {
+    @apply md:text-2xl text-2xl;
+  }
+  
+  .content h4 {
+    @apply text-lg;
+  }
+  
+  .content p {
+    @apply mb-4 leading-7 font-thin;
+
+  }
+  
+  .content ul, .content ol {
+    @apply my-2 list-disc ml-5;
+  }
+  
+  .content li {
+    @apply my-1;
+  }
+
+  .content label, .content em, .content strong {
+    color: var(--website-text-color);
+  }

@@ -1,0 +1,126 @@
+.navbar {
+    background: var(--header-background-color);
+    @apply left-0 right-0 z-50
+}
+
+.navItems {
+    color: var(--header-navigation-color)!important;
+    font-weight: 500;
+    font-size: 16px;
+    transition: all .2s linear;
+    @apply py-8
+}
+
+.desktopParentNavItem {
+    @apply relative inline-block mx-3
+}
+
+.navbarCta {
+    @apply px-4 py-3;
+    background-color: var(--primary-button-background);
+    color: var(--primary-button-text);
+    border-radius: var(--button-radius);
+}
+
+.navigationBurger div {
+    width: 25px;
+    height: 2px;
+    background: var(--mobile-icon-color);
+    margin: 4px 0;
+    transition: all .1s linear
+}
+
+.activeLink {
+    color: var(--primary-accent)!important
+}
+
+.dropDown {
+    @apply absolute bottom-0 left-0 translate-y-full bg-white text-left min-w-[150px] z-50
+}
+
+.dropDown li {
+    transition: all .2s linear;
+    padding: 4px 10px
+}
+
+.dropDown li:hover {
+    background: rgb(227, 227, 227);
+    transition: all .2s linear;
+
+}
+
+.activeDropDown {
+    display: block;
+    transition: all .3s linear;
+    opacity: 1;
+    bottom: 10px;
+    box-shadow: 0 5px 12px rgb(0 0 0 / 15%);
+}
+
+.activeDropDown li:not(:last-child) {
+    border-bottom: 1px solid rgb(222, 222, 222);
+}
+
+.hideDropDown {
+    visibility: hidden;
+    opacity: 0;
+    transition: all .2s linear
+}
+
+/* MOBILE */
+
+.mobileMenu {
+    box-shadow: 0 5px 12px rgb(0 0 0 / 15%);
+}
+
+.mobileMenu li:not(:last-child) {
+    border-bottom: 1px solid rgb(222, 222, 222);
+}
+
+.mobileMenu li a,
+.mobileMenu li button {
+    @apply py-3 px-6 block;
+    transition: all .3s linear;
+    color: #000;
+}
+
+.mobileMenu li:hover:not(.mobileDropDown) {
+    background: rgb(227, 227, 227);
+    transition: all .2s linear;
+}
+
+.mobileMenu li {
+    transition: all .2s linear;
+}
+
+ul.mobileMenu li:hover .activeLink {
+    color: #fff!important;
+    transition: all .3s ease;
+
+}
+
+.mobileDropDown {
+    transition: all .4s ease-in-out;
+    position: relative;
+    height: auto;
+    padding-left: 10px;
+    opacity: 1;
+}
+
+.mobileDropDown li {
+    transition: all .3s ease;
+}
+
+.mobileDropDown li:hover {
+    padding-left: 5px;
+    transition: all .3s ease;
+}
+
+.mobileHideDropDown {
+    transition: all .4s linear;
+    max-height: 0;
+    height: 0;
+    overflow-y: hidden;
+    position: absolute;
+    opacity: 0;
+}
