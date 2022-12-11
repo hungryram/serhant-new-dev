@@ -4,9 +4,14 @@
 /* purgecss end ignore */
 @tailwind utilities;
 
+@font-face {
+  font-family: ChongModernProRegular;
+  src: url(/fonts/ChongModernProRegular.ttf);
+}
+
 :root {
-    --heading-font-family: 'Lato', sans-serif;
-    --content-font-family: 'Roboto', sans-serif;
+    --heading-font-family: 'ChongModernProRegular', serif;
+    --content-font-family: 'ChongModernProRegular', serif;
 }
 
 main * {
@@ -16,6 +21,7 @@ main * {
 body {
   background-color: var(--website-body-color);
   color: var(--website-text-color);
+  font-size: 20px;
 }
 
 .section {
@@ -114,7 +120,7 @@ body .content h6 {
   }
   
   .content p {
-    @apply mb-4 leading-7 font-thin;
+    @apply mb-4 leading-7;
 
   }
   

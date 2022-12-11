@@ -1,5 +1,4 @@
 import { defineType } from "sanity";
-import React from "react";
 
 export default defineType({
     name: 'gallery',
@@ -14,7 +13,8 @@ export default defineType({
           title: 'Heading',
           name: 'heading',
           type: 'string',
-          group: 'content'
+          group: 'content',
+          description: 'Headings are H2 by default. Use the Content Editor for H1 tags'
         },
         {
             title: 'Content',
@@ -96,11 +96,14 @@ export default defineType({
         select: {
           images: 'images',
           image: 'images',
+          content: 'content.0.children.0.text',
+          title: 'heading'
         },
         prepare(selection) {
-          const { images, image } = selection;
+          const { images, image, title, content } = selection;
           return {
-            title: `Gallery section of ${images.length} images`,
+            title: title || content,
+            subtitle: `Gallery section of ${images?.length} images`,
             media: image[0].image,
           };
         },

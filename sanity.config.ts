@@ -3,7 +3,8 @@
  * This config is used to set up Sanity Studio that's mounted on the `/pages/studio/[[...index]].tsx` route
  */
 
-import { MdOutlineDesignServices, MdPersonOutline } from "react-icons/md"
+import { MdOutlineDesignServices, MdPersonOutline, MdOutlineEventAvailable } from "react-icons/md"
+import { SlLocationPin } from 'react-icons/sl'
 
 //  PLUGINS
 import { colorInput } from '@sanity/color-input'
@@ -12,6 +13,8 @@ import { visionTool } from '@sanity/vision'
 import { defineConfig, Slug } from 'sanity'
 import { deskTool } from 'sanity/desk'
 import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
+import { googleMapsInput } from "@sanity/google-maps-input"
+
 
 // PREVIEWS  
 import { PostsPreview } from './components/previews/PostsPreview'
@@ -21,15 +24,15 @@ import authorType from './schemas/documents/author'
 import postType from './schemas/documents/blog'
 import settingsType from './schemas/settings'
 import homeDocument from './schemas/documents/home'
+import neighborhoodDocument from './schemas/documents/neighborhood'
 import profileDocument from './schemas/documents/profile'
 import pagesDocument from './schemas/documents/pages'
 import appearanceDocument from './schemas/documents/appearance'
 import testimonialsDocument from './schemas/documents/testimonials'
 // import pressDocument from './schemas/documents/press'
-import teamDocument from './schemas/documents/team'
 import navigationDocument from './schemas/documents/navigation'
-import servicesDocument from './schemas/documents/services'
 import legalDocument from './schemas/documents/legal'
+import availabilitiesDocument from './schemas/documents/availabilities'
 import pageSettingsDocument from "./schemas/documents/page-settings"
 
 // OBJECTS
@@ -64,13 +67,12 @@ import testimonialsBuilder from './schemas/pagebuilder/testimonials'
 import imageGalleryBuilder from './schemas/pagebuilder/image-gallery'
 import featuredGridBuilder from './schemas/pagebuilder/featured-grid'
 import textImageBuilder from './schemas/pagebuilder/text-and-image'
-import leadFormBuilder from './schemas/pagebuilder/lead-form'
-import pricingBuilder from './schemas/pagebuilder/pricing'
 import logosBuilder from './schemas/pagebuilder/logos'
 import teamSectionBuilder from './schemas/pagebuilder/team-section'
 import blogSectionBuilder from './schemas/pagebuilder/blog-section'
 import iconSectionBuilder from './schemas/pagebuilder/icon-section'
 import servicesSectionBuilder from './schemas/pagebuilder/service-section'
+import videoBuilder from './schemas/pagebuilder/video'
 
 
 // @TODO: update next-sanity/studio to automatically set this when needed
@@ -91,11 +93,11 @@ export default defineConfig({
       appearanceDocument,
       profileDocument,
       pageSettingsDocument,
+      neighborhoodDocument,
       homeDocument,
       navigationDocument,
+      availabilitiesDocument,
       pagesDocument,
-      servicesDocument,
-      teamDocument,
       testimonialsDocument,
       // pressDocument,
       postType,
@@ -126,7 +128,6 @@ export default defineConfig({
       codeBuilder,
       testimonialsBuilder,
       imageGalleryBuilder,
-      pricingBuilder,
       teamSectionBuilder,
       blogSectionBuilder,
       contactBuilder,
@@ -134,15 +135,18 @@ export default defineConfig({
       iconSectionBuilder,
       disclosureBuilder,
       fullWidthTextImageBuilder,
-      leadFormBuilder,
       textImageBuilder,
       featuredGridBuilder,
       servicesSectionBuilder,
-      logosBuilder
+      logosBuilder,
+      videoBuilder,
     ],
   },
   plugins: [
     colorInput(),
+    googleMapsInput({
+      apiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API
+ }),
     deskTool({
       structure: (S) => {
 
@@ -178,14 +182,36 @@ export default defineConfig({
                 .documentId(pageSettingsDocument.name)
             )
 
+            const AvailabilitiesListItem = // A singleton not using `documentListItem`, eg no built-in preview
+            S.listItem()
+              .title(availabilitiesDocument.title)
+              .icon(MdOutlineEventAvailable)
+              .child(
+                S.editor()
+                  .id(availabilitiesDocument.name)
+                  .schemaType(availabilitiesDocument.name)
+                  .documentId(availabilitiesDocument.name)
+              )
+
+              const NeighborhoodListItem = // A singleton not using `documentListItem`, eg no built-in preview
+              S.listItem()
+                .title(neighborhoodDocument.title)
+                .icon(SlLocationPin)
+                .child(
+                  S.editor()
+                    .id(neighborhoodDocument.name)
+                    .schemaType(neighborhoodDocument.name)
+                    .documentId(neighborhoodDocument.name)
+                )
+
         // The default root list items (except custom ones)
         const defaultListItems = S.documentTypeListItems().filter(
-          (listItem) => ![settingsType.name, appearanceDocument.name, pageSettingsDocument.name, profileDocument.name].includes(listItem.getId())
+          (listItem) => ![settingsType.name, appearanceDocument.name, pageSettingsDocument.name, profileDocument.name, availabilitiesDocument.name, neighborhoodDocument.name].includes(listItem.getId())
         )
 
         return S.list()
           .title('Content')
-          .items([profileListItem, appearanceListItem, PageSettingsListItem, S.divider(), ...defaultListItems])
+          .items([profileListItem, appearanceListItem, PageSettingsListItem, S.divider(), AvailabilitiesListItem, NeighborhoodListItem, S.divider(), ...defaultListItems])
       },
 
       // `defaultDocumentNode is responsible for adding a “Preview” tab to the document pane
@@ -209,20 +235,6 @@ export default defineConfig({
         }
 
         if (schemaType === pagesDocument.name) {
-          return S.document().views([
-            S.view.form(),
-            S.view.component(PostsPreview).title('Preview'),
-          ])
-        }
-
-        if (schemaType === servicesDocument.name) {
-          return S.document().views([
-            S.view.form(),
-            S.view.component(PostsPreview).title('Preview'),
-          ])
-        }
-
-        if (schemaType === teamDocument.name) {
           return S.document().views([
             S.view.form(),
             S.view.component(PostsPreview).title('Preview'),
@@ -273,12 +285,6 @@ export default defineConfig({
             url.searchParams.set('slug', (document.slug as Slug).current!)
             break
           case legalDocument.name:
-            url.searchParams.set('slug', (document.slug as Slug).current!)
-            break
-          case servicesDocument.name:
-            url.searchParams.set('slug', (document.slug as Slug).current!)
-            break
-          case teamDocument.name:
             url.searchParams.set('slug', (document.slug as Slug).current!)
             break
           case postType.name:

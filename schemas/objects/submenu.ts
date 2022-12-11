@@ -37,7 +37,6 @@ export default defineType({
                 { type: 'author' },
                 { type: 'pages' },
                 { type: 'location' },
-                { type: 'services' }
             ],
         },
         {

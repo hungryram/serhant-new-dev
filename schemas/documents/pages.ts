@@ -50,6 +50,7 @@ export default defineType({
             group: 'content',
             of: [
                 {type: 'hero'},
+                {type: 'video'},
                 {type: 'textandImage'},
                 {type: 'featuredGrid'},
                 {type: 'iconSection'},
@@ -59,11 +60,8 @@ export default defineType({
                 {type: 'disclosureSection'},
                 {type: 'teamDisplay'},
                 {type: 'blogDisplay'},
-                {type: 'servicesDisplay'},
                 {type: 'gallery'},
                 {type: 'fullWidthTextImage'},
-                {type: 'leadForm'},
-                {type: 'pricing'},
                 {type: 'codeBlock'},
                 {type: 'contactPage'},
             ]

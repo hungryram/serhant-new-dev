@@ -1,7 +1,6 @@
 // ICONS
 import { AiOutlineMobile, AiOutlinePhone, AiOutlineMail } from "react-icons/ai"
 import { MdOutlineLocationOn } from "react-icons/md"
-import Hours from "./hours"
 
 export default function ContactBlock({
     phone,
@@ -12,8 +11,6 @@ export default function ContactBlock({
     state,
     zipCode,
     googleBusiness,
-    hours,
-    monday, tuesday, wednesday, thursday, friday, saturday, sunday
 }: any) {
     return (
         <>
@@ -59,17 +56,6 @@ export default function ContactBlock({
                     </li>
                 }
             </ul>
-            {hours &&
-                <Hours
-                    monday={monday}
-                    tuesday={tuesday}
-                    wednesday={wednesday}
-                    thursday={thursday}
-                    friday={friday}
-                    saturday={saturday}
-                    sunday={sunday}
-                />
-            }
         </>
     )
 }

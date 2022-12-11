@@ -33,16 +33,6 @@ export default function ContactPage({
     sendFrom,
     emailBcc,
     emailCc,
-
-    hours,
-    monday, 
-    tuesday, 
-    wednesday, 
-    thursday, 
-    friday, 
-    saturday, 
-    sunday
-
 }: any) {
     return (
         <Wrapper>
@@ -64,14 +54,6 @@ export default function ContactPage({
                                     city={city}
                                     state={state}
                                     zipCode={zip_code}
-                                    hours={hours}
-                                    monday={monday}
-                                    tuesday={tuesday}
-                                    wednesday={wednesday}
-                                    thursday={thursday}
-                                    friday={friday}
-                                    saturday={saturday}
-                                    sunday={sunday}
                                 />
                             </div>
                             <div className="mt-6">

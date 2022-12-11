@@ -16,11 +16,6 @@ export default defineType({
             type: 'contentEditor'
         },
         {
-            title: 'Display Hours',
-            name: 'hours',
-            type: 'boolean'
-        },
-        {
             title: 'Background Color',
             name: 'backgroundColor',
             type: 'color'

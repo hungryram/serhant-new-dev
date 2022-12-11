@@ -25,79 +25,6 @@ export default defineType({
             group: 'branding'
         },
         {
-            title: 'Announcement Bar',
-            name: 'announcementBar',
-            type: 'object',
-            options: {
-                collapsible: true,
-                collapsed: true
-            },
-            fields: [
-                {
-                    title: 'Announcement',
-                    name: 'announcement',
-                    type: 'string'
-                },
-                {
-                    title: "Link",
-                    name: "link",
-                    type: "subMenu",
-                    description: 'Give your announcement a call to action and link to a page'
-                },
-                {
-                    title: 'Background Color',
-                    name: 'backgroundColor',
-                    type: 'color',
-                    options: {
-                        disableAlpha: true
-                    }
-                },
-                {
-                    title: 'Text Color',
-                    name: 'textColor',
-                    type: 'color',
-                    options: {
-                        disableAlpha: true
-                    }
-                }
-            ],
-            group: 'header'
-        },
-        {
-            title: 'Top Header Bar',
-            name: 'topHeaderBar',
-            type: 'object',
-            group: 'header',
-            options: {
-                collapsible: true,
-                collapsed: true
-            },
-            fields: [
-                {
-                    title: 'Enable Top Header Bar',
-                    name: 'enableTopHeaderBar',
-                    type: 'boolean',
-                    description: 'Displays the contact information in the header'
-                },
-                {
-                    title: 'Top Header Contact Bar Background Color',
-                    name: 'topHeaderBarBgColor',
-                    type: 'color',
-                    options: {
-                        disableAlpha: true
-                    }
-                },
-                {
-                    title: 'Top Header Contact Bar Text Color',
-                    name: 'topHeaderBarTextColor',
-                    type: 'color',
-                    options: {
-                        disableAlpha: true
-                    }
-                },
-            ]
-        },
-        {
             title: 'Header',
             name: 'header',
             type: 'headerMenu',
@@ -167,17 +94,6 @@ export default defineType({
                     title: 'Footer Disclaimer',
                     name: 'footerDisclaimer',
                     type: 'contentEditor',
-                },
-                {
-                    title: 'Display Hours',
-                    name: 'hours',
-                    type: 'boolean',
-                },
-                {
-                    title: "Quick links",
-                    name: "quickLinks",
-                    type: "array",
-                    of: [{ type: "links" }]
                 },
                 {
                     title: 'Footer Background Color',

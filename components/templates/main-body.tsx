@@ -6,14 +6,13 @@ import FullWidthTextImage from './full-width-text-image'
 import TextImage from './text-and-image'
 import Gallery from './gallery'
 import Testimonials from './testimonials'
-import Pricing from './pricing'
-import LeadForm from './lead-form'
 import TeamSection from './team-section'
 import BlogSection from './blog-section'
 import IconSection from './icon-section'
 import ServiceSection from './service-section'
 import ContactPage from './contact'
 import Logos from './logos'
+import Video from './video'
 
 export default function MainBody({
     pageBuilder,
@@ -40,8 +39,6 @@ export default function MainBody({
     tiktok,
     zillow,
     size,
-    // HOURS
-    monday, tuesday, wednesday, thursday, friday, saturday, sunday,
     // PAGE FOLDERS
     allServices,
     allTestimonial,
@@ -135,6 +132,16 @@ export default function MainBody({
                             secondButtonText={section?.secondButtonLinking?.buttonText}
                             secondButtonLink={section?.secondButtonLinking}
                             secondaryButtonStyle={secondaryButton}
+                        />
+                    )
+                }
+
+                if (section._type === 'video') {
+                    return (
+                        <Video 
+                            link={section?.videoUrl}
+                            enableControls={section?.enableControls}
+                            title={section?.title}
                         />
                     )
                 }
@@ -334,59 +341,6 @@ export default function MainBody({
                     )
                 }
 
-                if (section._type === 'leadForm') {
-                    return (
-                        <LeadForm
-                            key={section._key}
-                            heading={section?.heading}
-                            content={section?.content}
-                            formBackground={secondaryBackground}
-                            formTextColor={section?.formTextColor?.hex}
-                            buttonText={section?.buttonLinking?.buttonText}
-                            buttonLink={section?.buttonLinking}
-                            buttonStyle={primaryButton}
-                            textStyle={bodyColor}
-                            headerStyle={headerColor}
-                            backgroundStyles={backgroundStyles}
-                            paddingSize={
-                                section?.paddingSizing === 'large' ? 'md:py-32 py-20' : 'py-0'
-                            }
-                            // FORMS
-                            emailAlerts={emailAlerts}
-                            sendFrom={sendFrom}
-                            emailBcc={emailBcc}
-                            emailCc={emailCc}
-                            // SECONDARY BUTTON
-                            secondButtonText={section?.secondButtonLinking?.buttonText}
-                            secondButtonLink={section?.secondButtonLinking}
-                            secondaryButtonStyle={secondaryButton}
-                            />
-                    )
-                }
-
-                if (section._type === 'pricing') {
-                    return (
-                        <Pricing
-                            key={section._key}
-                            heading={section?.heading}
-                            content={section?.content}
-                            secondaryBackground={secondaryBackground}
-                            blocks={section?.blockImages}
-                            columnNumber={section?.columnNumber}
-                            buttonText={section?.buttonLinking?.buttonText}
-                            buttonLink={section?.buttonLinking}
-                            buttonStyle={primaryButton}
-                            textStyle={bodyColor}
-                            headerStyle={headerColor}
-                            backgroundStyles={backgroundStyles}
-                            // SECONDARY BUTTON
-                            secondButtonText={section?.secondButtonLinking?.buttonText}
-                            secondButtonLink={section?.secondButtonLinking}
-                            secondaryButtonStyle={secondaryButton}
-                            />
-                    )
-                }
-
                 if (section._type === 'teamDisplay') {
                     return (
                         <TeamSection
@@ -498,15 +452,6 @@ export default function MainBody({
                             sendFrom={sendFrom}
                             emailBcc={emailBcc}
                             emailCc={emailCc}
-                            // HOURS
-                            hours={section?.hours}
-                            monday={monday}
-                            tuesday={tuesday}
-                            wednesday={wednesday}
-                            thursday={thursday}
-                            friday={friday}
-                            saturday={saturday}
-                            sunday={sunday}
                         />
                     )
                 }

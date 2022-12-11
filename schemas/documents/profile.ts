@@ -69,53 +69,6 @@ export default {
             ]
         },
         {
-            title: 'Hours',
-            name: 'hours',
-            group: 'settings',
-            type: 'object',
-            options: {
-                collapsible: true,
-                collapsed: true,
-            },
-            fields: [
-                {
-                    title: 'Monday',
-                    name: 'monday',
-                    type: 'string',
-                },
-                {
-                    title: 'Tuesday',
-                    name: 'tuesday',
-                    type: 'string',
-                },
-                {
-                    title: 'Wednesday',
-                    name: 'wednesday',
-                    type: 'string',
-                },
-                {
-                    title: 'Thursday',
-                    name: 'thursday',
-                    type: 'string',
-                },
-                {
-                    title: 'Friday',
-                    name: 'friday',
-                    type: 'string',
-                },
-                {
-                    title: 'Saturday',
-                    name: 'saturday',
-                    type: 'string',
-                },
-                {
-                    title: 'Sunday',
-                    name: 'sunday',
-                    type: 'string',
-                },
-            ]
-        },
-        {
             title: 'Settings',
             name: 'settings',
             type: 'object',
@@ -129,7 +82,7 @@ export default {
                     title: 'Website domain',
                     name: 'websiteName',
                     type: 'url',
-                    description: 'Must include the full URL',
+                    description: 'Must include the full URL. No trailing slash at the end.',
                     validation: Rule => Rule.required().error('Needed for website configuration')
                 },
                 {
