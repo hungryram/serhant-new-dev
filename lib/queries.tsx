@@ -103,25 +103,8 @@ internalLink->{
 `
 
 const otherDocumentSections = groq`
-'allServices': *[_type == 'services'] {
-  ...,
-  'imageData': headerImage {
-    asset->{
-      'altText':altText,
-      'lqip':metadata.lqip,
-      url
-    }
-  },
-},
-'allTeam': *[_type == 'team'] {
-  ...,
-  'imageData': image {
-    asset->{
-      'altText':altText,
-      'lqip':metadata.lqip,
-      url
-    }
-  },
+'allAvailabilities': *[_type == 'availabilities'][0]{
+  ...
 },
 'allBlog': *[_type == 'blog'][0...4] {
   ...,
@@ -133,7 +116,6 @@ const otherDocumentSections = groq`
     }
   },
 },
-'allTestimonial': *[_type == 'testimonials'],
 `
 
 const seoData = groq`

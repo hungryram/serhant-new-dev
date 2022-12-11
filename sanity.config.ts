@@ -73,6 +73,7 @@ import blogSectionBuilder from './schemas/pagebuilder/blog-section'
 import iconSectionBuilder from './schemas/pagebuilder/icon-section'
 import servicesSectionBuilder from './schemas/pagebuilder/service-section'
 import videoBuilder from './schemas/pagebuilder/video'
+import availabilityDisplayBuilder from './schemas/pagebuilder/availability-display'
 
 
 // @TODO: update next-sanity/studio to automatically set this when needed
@@ -140,6 +141,7 @@ export default defineConfig({
       servicesSectionBuilder,
       logosBuilder,
       videoBuilder,
+      availabilityDisplayBuilder,
     ],
   },
   plugins: [

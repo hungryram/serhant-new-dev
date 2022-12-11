@@ -31,7 +31,6 @@ export default function Index({
       "addressCountry": `${homeSettings.profileSettings?.address?.state}`
     },
   }
-
   return (
     <>
       <Layout preview={preview}>
@@ -77,6 +76,7 @@ export default function Index({
           allTestimonial={homeSettings?.allTestimonial}
           allBlog={homeSettings?.allBlog}
           allTeam={homeSettings?.allTeam}
+          allAvailabilities={homeSettings?.allAvailabilities}
 
         />
       </Layout>

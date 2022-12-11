@@ -37,6 +37,7 @@ export default defineType({
                 {type: 'hero'},
                 {type: 'video'},
                 {type: 'textandImage'},
+                {type: 'availabilityDisplay'},
                 {type: 'featuredGrid'},
                 {type: 'iconSection'},
                 {type: 'banner'},

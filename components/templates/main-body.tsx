@@ -13,6 +13,7 @@ import ServiceSection from './service-section'
 import ContactPage from './contact'
 import Logos from './logos'
 import Video from './video'
+import AvailabilityTable from './availability-table'
 
 export default function MainBody({
     pageBuilder,
@@ -43,7 +44,8 @@ export default function MainBody({
     allServices,
     allTestimonial,
     allBlog,
-    allTeam
+    allTeam,
+    allAvailabilities
 }: any) {
 
     const defaultText = 'var(--website-text-color)'
@@ -138,7 +140,7 @@ export default function MainBody({
 
                 if (section._type === 'video') {
                     return (
-                        <Video 
+                        <Video
                             link={section?.videoUrl}
                             enableControls={section?.enableControls}
                             title={section?.title}
@@ -280,8 +282,17 @@ export default function MainBody({
                             secondButtonText={section?.secondButtonLinking?.buttonText}
                             secondButtonLink={section?.secondButtonLinking}
                             secondaryButtonStyle={secondaryButton}
-                            />
+                        />
+                    )
+                }
 
+                if (section._type === 'availabilityDisplay') {
+
+                    return (
+                        <AvailabilityTable 
+                            availabilities={allAvailabilities}
+                            
+                        />
                     )
                 }
 
@@ -337,7 +348,7 @@ export default function MainBody({
                             secondButtonText={section?.secondButtonLinking?.buttonText}
                             secondButtonLink={section?.secondButtonLinking}
                             secondaryButtonStyle={secondaryButton}
-                            />
+                        />
                     )
                 }
 
@@ -359,7 +370,7 @@ export default function MainBody({
                             secondButtonText={section?.secondButtonLinking?.buttonText}
                             secondButtonLink={section?.secondButtonLinking}
                             secondaryButtonStyle={secondaryButton}
-                            />
+                        />
                     )
                 }
 
@@ -381,7 +392,7 @@ export default function MainBody({
                             secondButtonText={section?.secondButtonLinking?.buttonText}
                             secondButtonLink={section?.secondButtonLinking}
                             secondaryButtonStyle={secondaryButton}
-                            />
+                        />
                     )
                 }
 
@@ -405,7 +416,7 @@ export default function MainBody({
                             secondButtonText={section?.secondButtonLinking?.buttonText}
                             secondButtonLink={section?.secondButtonLinking}
                             secondaryButtonStyle={secondaryButton}
-                            />
+                        />
                     )
                 }
 
@@ -474,7 +485,7 @@ export default function MainBody({
                             secondButtonText={section?.secondButtonLinking?.buttonText}
                             secondButtonLink={section?.secondButtonLinking}
                             secondaryButtonStyle={secondaryButton}
-                            />
+                        />
                     )
                 }
 
