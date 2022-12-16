@@ -15,7 +15,8 @@ export default function AvailabilityTable({
     file,
     image,
     residence,
-    factSheet
+    factSheet,
+    organizedLayout
 }: any) {
     return (
         <div className="section">
@@ -40,31 +41,164 @@ export default function AvailabilityTable({
                                 <th>Floor Plan</th>
                             </tr>
                         </thead>
-                        <tbody>
-
-                            {availabilities.avail.map((node, i) => {
-                                return (
+                        {organizedLayout ?
+                            <>
+                                <thead>
                                     <tr>
-                                        {node?.residence ? <td>{node?.residence}</td> : <td>—</td>}
-                                        {node?.bedBath ? <td>{node?.bedBath}</td> : <td>—</td>}
-                                        {node?.intExtSf ? <td>{node?.intExtSf}</td> : <td>—</td>}
-                                        {node?.exposure ? <td>{node?.exposure}</td> : <td>—</td>}
-                                        {node?.price ? <td>{node?.price}</td> : <td>—</td>}
-                                        {node?.cc ? <td>{node?.cc}</td> : <td>—</td>}
-                                        {node?.retax ? <td>{node?.retax}</td> : <td>—</td>}
-                                        {node?.status ? <td>{node?.status}</td> : <td>—</td>}
-                                        {/* {node?.viewListing ? <td><a href={node?.viewListing} target="_blank" rel="noreferrer">VIEW</a></td> : <td>—</td>} */}
-                                        {node?.file || node?.image ?
-                                            <td>
-                                                {node?.file && <a href={file} target="_blank" rel="noreferrer" className="flex justify-center" title={`View floor plans for ${residence}`}><AiFillFilePdf /></a>}
-                                                {node?.image && <a href={urlForImage(node?.image).url()} target="_blank" rel="noreferrer" className="flex justify-center" title={`View floor plans for ${residence}`}><AiFillFilePdf className="text-2xl" /></a>}
-                                            </td>
-                                            : <td>—</td>
-                                        }
+                                        <th colSpan="12" className="h-16 bg-[#474967] text-white text-left px-10">2 Bedroom</th>
                                     </tr>
-                                )
-                            })}
-                        </tbody>
+                                </thead>
+                                {availabilities.avail.map((node) => {
+                                    return (
+                                        <>
+                                            {node.bedBath === '2' &&
+                                                <tr>
+                                                    {node?.residence ? <td>{node?.residence}</td> : <td>—</td>}
+                                                    {node?.bedBath ? <td>{node?.bedBath}</td> : <td>—</td>}
+                                                    {node?.intExtSf ? <td>{node?.intExtSf}</td> : <td>—</td>}
+                                                    {node?.exposure ? <td>{node?.exposure}</td> : <td>—</td>}
+                                                    {node?.price ? <td>{node?.price}</td> : <td>—</td>}
+                                                    {node?.cc ? <td>{node?.cc}</td> : <td>—</td>}
+                                                    {node?.retax ? <td>{node?.retax}</td> : <td>—</td>}
+                                                    {node?.status ? <td>{node?.status}</td> : <td>—</td>}
+                                                    {/* {node?.viewListing ? <td><a href={node?.viewListing} target="_blank" rel="noreferrer">VIEW</a></td> : <td>—</td>} */}
+                                                    {node?.file || node?.image ?
+                                                        <td>
+                                                            {node?.file && <a href={file} target="_blank" rel="noreferrer" className="flex justify-center" title={`View floor plans for ${residence}`}><AiFillFilePdf /></a>}
+                                                            {node?.image && <a href={urlForImage(node?.image).url()} target="_blank" rel="noreferrer" className="flex justify-center" title={`View floor plans for ${residence}`}><AiFillFilePdf className="text-2xl" /></a>}
+                                                        </td>
+                                                        : <td>—</td>
+                                                    }
+                                                </tr>
+
+                                            }
+                                        </>
+                                    )
+                                })}
+                                <thead>
+                                    <tr>
+                                        <th colSpan="12" className="h-16 bg-[#474967] text-white text-left px-10">3 Bedrooms</th>
+                                    </tr>
+                                </thead>
+                                {availabilities.avail.map((node) => {
+                                    return (
+                                        <>
+                                            {node.bedBath === '3' &&
+                                                <tr>
+                                                    {node?.residence ? <td>{node?.residence}</td> : <td>—</td>}
+                                                    {node?.bedBath ? <td>{node?.bedBath}</td> : <td>—</td>}
+                                                    {node?.intExtSf ? <td>{node?.intExtSf}</td> : <td>—</td>}
+                                                    {node?.exposure ? <td>{node?.exposure}</td> : <td>—</td>}
+                                                    {node?.price ? <td>{node?.price}</td> : <td>—</td>}
+                                                    {node?.cc ? <td>{node?.cc}</td> : <td>—</td>}
+                                                    {node?.retax ? <td>{node?.retax}</td> : <td>—</td>}
+                                                    {node?.status ? <td>{node?.status}</td> : <td>—</td>}
+                                                    {/* {node?.viewListing ? <td><a href={node?.viewListing} target="_blank" rel="noreferrer">VIEW</a></td> : <td>—</td>} */}
+                                                    {node?.file || node?.image ?
+                                                        <td>
+                                                            {node?.file && <a href={file} target="_blank" rel="noreferrer" className="flex justify-center" title={`View floor plans for ${residence}`}><AiFillFilePdf /></a>}
+                                                            {node?.image && <a href={urlForImage(node?.image).url()} target="_blank" rel="noreferrer" className="flex justify-center" title={`View floor plans for ${residence}`}><AiFillFilePdf className="text-2xl" /></a>}
+                                                        </td>
+                                                        : <td>—</td>
+                                                    }
+                                                </tr>
+
+                                            }
+                                        </>
+                                    )
+                                })}
+                                <thead>
+                                    <tr>
+                                        <th colSpan="12" className="h-16 bg-[#474967] text-white text-left px-10">4 Bedrooms</th>
+                                    </tr>
+                                </thead>
+                                {availabilities.avail.map((node) => {
+                                    return (
+                                        <>
+                                            {node.bedBath === '4' &&
+                                                <tr>
+                                                    {node?.residence ? <td>{node?.residence}</td> : <td>—</td>}
+                                                    {node?.bedBath ? <td>{node?.bedBath}</td> : <td>—</td>}
+                                                    {node?.intExtSf ? <td>{node?.intExtSf}</td> : <td>—</td>}
+                                                    {node?.exposure ? <td>{node?.exposure}</td> : <td>—</td>}
+                                                    {node?.price ? <td>{node?.price}</td> : <td>—</td>}
+                                                    {node?.cc ? <td>{node?.cc}</td> : <td>—</td>}
+                                                    {node?.retax ? <td>{node?.retax}</td> : <td>—</td>}
+                                                    {node?.status ? <td>{node?.status}</td> : <td>—</td>}
+                                                    {/* {node?.viewListing ? <td><a href={node?.viewListing} target="_blank" rel="noreferrer">VIEW</a></td> : <td>—</td>} */}
+                                                    {node?.file || node?.image ?
+                                                        <td>
+                                                            {node?.file && <a href={file} target="_blank" rel="noreferrer" className="flex justify-center" title={`View floor plans for ${residence}`}><AiFillFilePdf /></a>}
+                                                            {node?.image && <a href={urlForImage(node?.image).url()} target="_blank" rel="noreferrer" className="flex justify-center" title={`View floor plans for ${residence}`}><AiFillFilePdf className="text-2xl" /></a>}
+                                                        </td>
+                                                        : <td>—</td>
+                                                    }
+                                                </tr>
+
+                                            }
+                                        </>
+                                    )
+                                })}
+                                <thead>
+                                    <tr>
+                                        <th colSpan="12" className="h-16 bg-[#474967] text-white text-left px-10">5 Bedrooms</th>
+                                    </tr>
+                                </thead>
+                                {availabilities.avail.map((node) => {
+                                    return (
+                                        <>
+                                            {node.bedBath === '5' &&
+                                                <tr>
+                                                    {node?.residence ? <td>{node?.residence}</td> : <td>—</td>}
+                                                    {node?.bedBath ? <td>{node?.bedBath}</td> : <td>—</td>}
+                                                    {node?.intExtSf ? <td>{node?.intExtSf}</td> : <td>—</td>}
+                                                    {node?.exposure ? <td>{node?.exposure}</td> : <td>—</td>}
+                                                    {node?.price ? <td>{node?.price}</td> : <td>—</td>}
+                                                    {node?.cc ? <td>{node?.cc}</td> : <td>—</td>}
+                                                    {node?.retax ? <td>{node?.retax}</td> : <td>—</td>}
+                                                    {node?.status ? <td>{node?.status}</td> : <td>—</td>}
+                                                    {/* {node?.viewListing ? <td><a href={node?.viewListing} target="_blank" rel="noreferrer">VIEW</a></td> : <td>—</td>} */}
+                                                    {node?.file || node?.image ?
+                                                        <td>
+                                                            {node?.file && <a href={file} target="_blank" rel="noreferrer" className="flex justify-center" title={`View floor plans for ${residence}`}><AiFillFilePdf /></a>}
+                                                            {node?.image && <a href={urlForImage(node?.image).url()} target="_blank" rel="noreferrer" className="flex justify-center" title={`View floor plans for ${residence}`}><AiFillFilePdf className="text-2xl" /></a>}
+                                                        </td>
+                                                        : <td>—</td>
+                                                    }
+                                                </tr>
+
+                                            }
+                                        </>
+                                    )
+                                })}
+                            </>
+                            :
+
+                            <>
+                                {availabilities.avail.map((node, i) => {
+                                    return (
+                                        <tr>
+                                            {node?.residence ? <td>{node?.residence}</td> : <td>—</td>}
+                                            {node?.bedBath ? <td>{node?.bedBath}</td> : <td>—</td>}
+                                            {node?.intExtSf ? <td>{node?.intExtSf}</td> : <td>—</td>}
+                                            {node?.exposure ? <td>{node?.exposure}</td> : <td>—</td>}
+                                            {node?.price ? <td>{node?.price}</td> : <td>—</td>}
+                                            {node?.cc ? <td>{node?.cc}</td> : <td>—</td>}
+                                            {node?.retax ? <td>{node?.retax}</td> : <td>—</td>}
+                                            {node?.status ? <td>{node?.status}</td> : <td>—</td>}
+                                            {/* {node?.viewListing ? <td><a href={node?.viewListing} target="_blank" rel="noreferrer">VIEW</a></td> : <td>—</td>} */}
+                                            {node?.file || node?.image ?
+                                                <td>
+                                                    {node?.file && <a href={file} target="_blank" rel="noreferrer" className="flex justify-center" title={`View floor plans for ${residence}`}><AiFillFilePdf /></a>}
+                                                    {node?.image && <a href={urlForImage(node?.image).url()} target="_blank" rel="noreferrer" className="flex justify-center" title={`View floor plans for ${residence}`}><AiFillFilePdf className="text-2xl" /></a>}
+                                                </td>
+                                                : <td>—</td>
+                                            }
+                                        </tr>
+                                    )
+                                })}
+                            </>
+                        }
 
                     </table>
                 </div>

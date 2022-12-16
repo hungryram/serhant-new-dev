@@ -34,10 +34,11 @@ export default defineType({
             group: 'content'
         },
         {
-            title: 'Background Options',
-            name: 'background',
+            title: 'Organized Layout',
+            name: 'organizedLayout',
+            type: 'boolean',
+            description: 'Organize layout by bedrooms',
             group: 'settings',
-            type: 'backgroundOptions',
-        }
+        },
     ]
 })

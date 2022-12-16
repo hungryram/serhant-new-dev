@@ -294,6 +294,7 @@ export default function MainBody({
                         <AvailabilityTable
                             availabilities={allAvailabilities}
                             factSheet={factSheet}
+                            organizedLayout={section?.organizedLayout}
 
                         />
                     )
