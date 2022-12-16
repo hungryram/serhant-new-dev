@@ -104,7 +104,21 @@ internalLink->{
 
 const otherDocumentSections = groq`
 'allAvailabilities': *[_type == 'availabilities'][0]{
+  ...,
+  'factSheetUrl': factSheet.asset->url
+},
+'allNeighborhood': *[_type == 'mapMarker'][0]{
   ...
+},
+'allPress': *[_type == 'press']{
+  ...,
+  'imageData': image {                // FIRST PARENT IMAGE DATA
+    asset-> {
+      'altText':altText,
+      'lqip':metadata.lqip,
+      url
+    }
+  },                                  // END PARENT IMAGE DATA
 },
 'allBlog': *[_type == 'blog'][0...4] {
   ...,

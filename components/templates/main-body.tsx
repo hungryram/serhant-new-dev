@@ -6,7 +6,6 @@ import FullWidthTextImage from './full-width-text-image'
 import TextImage from './text-and-image'
 import Gallery from './gallery'
 import Testimonials from './testimonials'
-import TeamSection from './team-section'
 import BlogSection from './blog-section'
 import IconSection from './icon-section'
 import ServiceSection from './service-section'
@@ -14,6 +13,8 @@ import ContactPage from './contact'
 import Logos from './logos'
 import Video from './video'
 import AvailabilityTable from './availability-table'
+import Map from './map'
+import Press from './press'
 
 export default function MainBody({
     pageBuilder,
@@ -44,8 +45,10 @@ export default function MainBody({
     allServices,
     allTestimonial,
     allBlog,
-    allTeam,
-    allAvailabilities
+    allPress,
+    allAvailabilities,
+    allNeighborhood,
+    factSheet
 }: any) {
 
     const defaultText = 'var(--website-text-color)'
@@ -287,11 +290,20 @@ export default function MainBody({
                 }
 
                 if (section._type === 'availabilityDisplay') {
-
                     return (
-                        <AvailabilityTable 
+                        <AvailabilityTable
                             availabilities={allAvailabilities}
-                            
+                            factSheet={factSheet}
+
+                        />
+                    )
+                }
+
+                if (section._type === 'pressDisplay') {
+                    return (
+                        <Press 
+                            content={section?.content}
+                            press={allPress}
                         />
                     )
                 }
@@ -340,28 +352,6 @@ export default function MainBody({
                             arrowColor={section?.background?.textColor?.textColor?.hex}
                             buttonText={section?.buttonLinking?.buttonText}
                             buttonLink={section?.buttonLinking}
-                            buttonStyle={primaryButton}
-                            textStyle={bodyColor}
-                            headerStyle={headerColor}
-                            backgroundStyles={backgroundStyles}
-                            // SECONDARY BUTTON
-                            secondButtonText={section?.secondButtonLinking?.buttonText}
-                            secondButtonLink={section?.secondButtonLinking}
-                            secondaryButtonStyle={secondaryButton}
-                        />
-                    )
-                }
-
-                if (section._type === 'teamDisplay') {
-                    return (
-                        <TeamSection
-                            key={section._key}
-                            heading={section?.heading}
-                            content={section?.content}
-                            team={allTeam}
-                            carousel={section?.carousel}
-                            buttonLink={section?.buttonLinking}
-                            buttonText={section?.buttonLinking?.buttonText}
                             buttonStyle={primaryButton}
                             textStyle={bodyColor}
                             headerStyle={headerColor}
@@ -502,6 +492,17 @@ export default function MainBody({
                             textStyle={bodyColor}
                             headerStyle={headerColor}
                             backgroundStyles={backgroundStyles}
+                        />
+                    )
+                }
+
+
+                if (section._type === 'mapDisplay') {
+                    return (
+                        <Map
+                            key={section._key}
+                            mapNames={allNeighborhood?.neighborhoods}
+                            heading={section?.heading}
                         />
                     )
                 }

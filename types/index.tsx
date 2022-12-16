@@ -30,6 +30,9 @@ export interface PageProps {
   allTestimonial?: any
   allBlog?: any
   allTeam?: any
+  allAvailabilities?: any
+  allNeighborhood?: any
+  allPress?: any
 }
 
 export interface ServiceProps {

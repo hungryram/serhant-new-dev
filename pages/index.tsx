@@ -15,7 +15,7 @@ export default function Index({
   const schemaMarkup =
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "WebPage",
     "name": `${homeSettings.profileSettings?.company_name}`,
     "description": `${homeSettings.profileSettings?.seo?.meta_description}`,
     "image": `${homeSettings.profileSettings?.defaultImageData?.defaultImageBanner?.asset?.url}`,
@@ -72,12 +72,12 @@ export default function Index({
           emailBcc={homeSettings?.profileSettings?.settings?.emailBcc}
           emailCc={homeSettings?.profileSettings?.settings?.emailCc}
           // PAGE FOLDERS
-          allServices={homeSettings?.allServices}
           allTestimonial={homeSettings?.allTestimonial}
           allBlog={homeSettings?.allBlog}
-          allTeam={homeSettings?.allTeam}
           allAvailabilities={homeSettings?.allAvailabilities}
-
+          factSheet={homeSettings?.allAvailabilities?.factSheetUrl}
+          allNeighborhood={homeSettings?.allNeighborhood}
+          allPress={homeSettings?.allPress}
         />
       </Layout>
     </>

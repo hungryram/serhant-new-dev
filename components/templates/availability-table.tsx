@@ -14,14 +14,18 @@ export default function AvailabilityTable({
     viewListing,
     file,
     image,
-    residence
+    residence,
+    factSheet
 }: any) {
     return (
         <div className="section">
-            <div className="md:p-10 p-4" style={{
-                background: 'hsl(0deg 0% 100% / 85%)'
-            }}>
+            <div>
                 <div className="container">
+                    {factSheet &&
+                        <div className="my-10 text-center uppercase text-2xl italic underline">
+                            <a href={factSheet} target="_blank">View Fact Sheet</a>
+                        </div>
+                    }
                     <table className={`border-collapse table-auto w-full text-center availability hidden md:table ${Styles.availabilityTable}`}>
                         <thead>
                             <tr className="uppercase">
@@ -67,37 +71,39 @@ export default function AvailabilityTable({
 
 
 
-                <div className="md:hidden pb-10">
-                    {availabilities.avail.map((node) => {
-                        return (
-                            <div className="bg-gray-100 p-4 mt-10" key={node._key}>
-                                {node.residence ? <h3 className="text-2xl">{node.residence}</h3> : <h3 className="text-2xl">-</h3>}
-                                <div className="border-t pt-4 mt-4">
-                                    <div className="grid grid-cols-2 mobile-availability">
-                                        {node.bedBath ? <div className="p-2"><span>Bed/Bath</span><p>{node.bedBath}</p></div> : <></>}
-                                        {node.intExtSf ? <div className="p-2"><span>Int/Ext SF</span><p>{node.intExtSf}</p></div> : <></>}
-                                        {node.terrace ? <div className="p-2"><span>Terrace</span><p>{node.terrace}</p></div> : <></>}
-                                        {node.price ? <div className="p-2"><span>Price</span><p>{node.price}</p></div> : <></>}
-                                        {node.cc ? <div className="p-2"><span>ESTIMATED MONTHLY CC</span><p>{node.cc}</p></div> : <></>}
-                                        {node.retax ? <div className="p-2"><span>Estimated Monthly Re Tax</span><p>{node.retax}</p></div> : <></>}
-                                        {node.status ? <div className="p-2"><span>Status</span><p>{node.status}</p></div> : <></>}
-                                        {node.viewListing ? <div className="p-2"><p>Listing</p><a href={node.viewListing} target="_blank" rel="noreferrer">VIEW</a></div> : <></>}
-                                        {node.file || node.image ?
-                                            <div className="p-2">
-                                                <span>Floor plan</span>
-                                                <div>
-                                                    {node.file && <a href={node.file.asset.url} className="block" target="_blank" rel="noreferrer">Floor Plan</a>}
-                                                    {node.image && <a href={urlForImage(node.image).url()} target="_blank" rel="noreferrer"><AiFillFilePdf className="text-xl" /></a>}
-                                                </div>
+                <div className="container md:hidden ">
+                    <div className="pb-10">
+                        {availabilities.avail.map((node) => {
+                            return (
+                                <div className="bg-gray-100 p-4 mt-10" key={node._key}>
+                                    {node.residence ? <h3 className="text-2xl">{node.residence}</h3> : <h3 className="text-2xl">-</h3>}
+                                    <div className="border-t pt-4 mt-4">
+                                        <div className="grid grid-cols-2 mobile-availability">
+                                            {node.bedBath ? <div className="p-2"><span>Bed/Bath</span><p>{node.bedBath}</p></div> : <></>}
+                                            {node.intExtSf ? <div className="p-2"><span>Int/Ext SF</span><p>{node.intExtSf}</p></div> : <></>}
+                                            {node.terrace ? <div className="p-2"><span>Terrace</span><p>{node.terrace}</p></div> : <></>}
+                                            {node.price ? <div className="p-2"><span>Price</span><p>{node.price}</p></div> : <></>}
+                                            {node.cc ? <div className="p-2"><span>ESTIMATED MONTHLY CC</span><p>{node.cc}</p></div> : <></>}
+                                            {node.retax ? <div className="p-2"><span>Estimated Monthly Re Tax</span><p>{node.retax}</p></div> : <></>}
+                                            {node.status ? <div className="p-2"><span>Status</span><p>{node.status}</p></div> : <></>}
+                                            {node.viewListing ? <div className="p-2"><p>Listing</p><a href={node.viewListing} target="_blank" rel="noreferrer">VIEW</a></div> : <></>}
+                                            {node.file || node.image ?
+                                                <div className="p-2">
+                                                    <span>Floor plan</span>
+                                                    <div>
+                                                        {node.file && <a href={node.file.asset.url} className="block" target="_blank" rel="noreferrer">Floor Plan</a>}
+                                                        {node.image && <a href={urlForImage(node.image).url()} target="_blank" rel="noreferrer"><AiFillFilePdf className="text-xl" /></a>}
+                                                    </div>
 
-                                            </div>
-                                            :
-                                            <div className="p-2">-</div>}
+                                                </div>
+                                                :
+                                                <div className="p-2">-</div>}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        )
-                    })}
+                            )
+                        })}
+                    </div>
                 </div>
 
             </div>

@@ -37,7 +37,7 @@ export default function ContactPage({
     return (
         <Wrapper>
             <div className={`md:flex md:space-x-20 md:space-y-0 space-y-10 ${Styles.contactPage}`}>
-                <div className="md:w-1/3">
+                <div className="md:w-1/2">
                     <div style={{
                         backgroundColor: `${backgroundColor}`
                     }}>
@@ -74,7 +74,7 @@ export default function ContactPage({
                         </div>
                     </div>
                 </div>
-                <div className="md:w-2/3">
+                <div className="md:w-1/2">
                     <BodyText
                         heading={heading}
                         body={content}

@@ -91,8 +91,10 @@ export default function Pages(props: Props) {
                 allServices={page?.allServices}
                 allTestimonial={page?.allTestimonial}
                 allBlog={page?.allBlog}
-                allTeam={page?.allTeam}
-                
+                allAvailabilities={page?.allAvailabilities}
+                factSheet={page?.allAvailabilities?.factSheetUrl}
+                allNeighborhood={page?.allNeighborhood}
+                allPress={page?.allPress}
             />
         </Layout>
     )

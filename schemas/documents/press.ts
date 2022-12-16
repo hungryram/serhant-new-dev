@@ -13,10 +13,20 @@ export default defineType({
             type: 'string'
         },
         {
+            title: 'Date',
+            name: 'date',
+            type: 'date'
+        },
+        {
             title: 'Description',
             name: 'description',
             type: 'text',
             description: 'Press is a page block within the page builder. Choose the press block in a page builder to display the presses'
+        },
+        {
+            title: 'Image',
+            name: 'image',
+            type: 'image'
         },
         {
             title: 'Press Link',

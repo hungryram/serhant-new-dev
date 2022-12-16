@@ -38,13 +38,11 @@ export default defineType({
                 {type: 'video'},
                 {type: 'textandImage'},
                 {type: 'availabilityDisplay'},
+                {type: 'mapDisplay'},
                 {type: 'featuredGrid'},
-                {type: 'iconSection'},
                 {type: 'banner'},
                 {type: 'logos'},
-                {type: 'testimonialBuilder'},
                 {type: 'disclosureSection'},
-                {type: 'teamDisplay'},
                 {type: 'blogDisplay'},
                 {type: 'gallery'},
                 {type: 'fullWidthTextImage'},
@@ -54,4 +52,5 @@ export default defineType({
             ]
         }
     ]
+    
 })

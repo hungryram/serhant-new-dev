@@ -1,8 +1,8 @@
 import { defineType } from "sanity";
 
 export default defineType({
-    title: 'Team Display',
-    name: 'teamDisplay',
+    title: 'Press Section',
+    name: 'pressDisplay',
     type: 'object',
     groups: [
         {name: 'content', title: 'Content'},
@@ -14,7 +14,6 @@ export default defineType({
             name: 'heading',
             type: 'string',
             group: 'content',
-            description: 'Teams are automatically pulled from the team sidebar'
         },
         {
             title: 'Content',
@@ -33,13 +32,6 @@ export default defineType({
             name: 'secondaryButton',
             type: 'secondaryButton',
             group: 'content'
-        },
-        {
-            title: 'Enable Carousel',
-            name: 'carousel',
-            type: 'boolean',
-            description: 'Displayed grid view by default',
-            group: 'settings',
         },
         {
             title: 'Background Options',

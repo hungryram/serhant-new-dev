@@ -29,7 +29,7 @@ import profileDocument from './schemas/documents/profile'
 import pagesDocument from './schemas/documents/pages'
 import appearanceDocument from './schemas/documents/appearance'
 import testimonialsDocument from './schemas/documents/testimonials'
-// import pressDocument from './schemas/documents/press'
+import pressDocument from './schemas/documents/press'
 import navigationDocument from './schemas/documents/navigation'
 import legalDocument from './schemas/documents/legal'
 import availabilitiesDocument from './schemas/documents/availabilities'
@@ -68,11 +68,12 @@ import imageGalleryBuilder from './schemas/pagebuilder/image-gallery'
 import featuredGridBuilder from './schemas/pagebuilder/featured-grid'
 import textImageBuilder from './schemas/pagebuilder/text-and-image'
 import logosBuilder from './schemas/pagebuilder/logos'
-import teamSectionBuilder from './schemas/pagebuilder/team-section'
 import blogSectionBuilder from './schemas/pagebuilder/blog-section'
 import iconSectionBuilder from './schemas/pagebuilder/icon-section'
 import servicesSectionBuilder from './schemas/pagebuilder/service-section'
 import videoBuilder from './schemas/pagebuilder/video'
+import mapBuilder from './schemas/pagebuilder/map-section'
+import pressBuilder from './schemas/pagebuilder/press-section'
 import availabilityDisplayBuilder from './schemas/pagebuilder/availability-display'
 
 
@@ -85,7 +86,7 @@ export default defineConfig({
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
   title:
     process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
-    'Hungry Ram',
+    'Hungry Ram Web Design',
   schema: {
     // If you want more content types, you can add them to this array
     types: [
@@ -99,8 +100,8 @@ export default defineConfig({
       navigationDocument,
       availabilitiesDocument,
       pagesDocument,
-      testimonialsDocument,
-      // pressDocument,
+      // testimonialsDocument,
+      pressDocument,
       postType,
       authorType,
       legalDocument,
@@ -129,7 +130,6 @@ export default defineConfig({
       codeBuilder,
       testimonialsBuilder,
       imageGalleryBuilder,
-      teamSectionBuilder,
       blogSectionBuilder,
       contactBuilder,
       bannerBuilder,
@@ -142,6 +142,8 @@ export default defineConfig({
       logosBuilder,
       videoBuilder,
       availabilityDisplayBuilder,
+      mapBuilder,
+      pressBuilder,
     ],
   },
   plugins: [

@@ -1,7 +1,4 @@
 // ICONS
-import { AiOutlineMobile, AiOutlinePhone, AiOutlineMail } from "react-icons/ai"
-import { MdOutlineLocationOn } from "react-icons/md"
-
 export default function ContactBlock({
     phone,
     office,
@@ -19,7 +16,6 @@ export default function ContactBlock({
                     <li>
                         <a href={`tel:${phone}`}>
                             <div className="flex items-center md:justify-start justify-center">
-                                <span><AiOutlineMobile className="mr-4" /></span>
                                 <span>{phone}</span>
                             </div>
                         </a>
@@ -29,7 +25,6 @@ export default function ContactBlock({
                     <li>
                         <a href={`tel:${office}`}>
                             <div className="flex items-center md:justify-start justify-center">
-                                <span><AiOutlinePhone className="mr-4" /></span>
                                 <span>{office}</span>
                             </div>
                         </a>
@@ -39,7 +34,6 @@ export default function ContactBlock({
                     <li>
                         <a href={`mailto:${email}`}>
                             <div className="flex items-center md:justify-start justify-center">
-                                <span><AiOutlineMail className="mr-4" /></span>
                                 <span>{email}</span>
                             </div>
                         </a>
@@ -49,8 +43,7 @@ export default function ContactBlock({
                     <li>
                         <a href={googleBusiness ?? '#'} target={googleBusiness && '_blank'}>
                             <div className="flex items-center md:justify-start justify-center">
-                                <span><MdOutlineLocationOn className="mr-4" /></span>
-                                <span>{address} <span className="block">{city} {state} {zipCode}</span></span>
+                                <span>{address} {city} {state} {zipCode}</span>
                             </div>
                         </a>
                     </li>

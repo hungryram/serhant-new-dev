@@ -1,12 +1,8 @@
-import Image from "next/image"
 import Styles from "../../styles/footer.module.css"
 import Link from "next/link"
-import { urlForImage } from "../../lib/sanity"
 
 // UTIL
-import Social from "../templates/social"
 import ContentEditor from "../templates/contenteditor"
-import ContactBlock from "../templates/contact-block"
 
 export default function Footer({
     address,
@@ -41,7 +37,7 @@ export default function Footer({
             <div className="pt-20 pb-10">
                 <div className="container">
                     {footerDisclaimer &&
-                        <div className="text-center text-xs">
+                        <div className="text-center text-lg">
                             <ContentEditor
                                 content={footerDisclaimer}
                             />
